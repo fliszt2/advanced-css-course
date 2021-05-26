@@ -2,8 +2,8 @@
   height: 95vh;
   background-image: linear-gradient(
     to right bottom,
-    rgba($color-primary-light, 0.801),
-    rgba($color-primary-dark, 0.801)),
+    rgba($color-primary-light, .8),
+    rgba($color-primary-dark, .8)),
   url(../img/hero-small.jpg);
   background-size: cover;
   background-position: top;
@@ -13,14 +13,16 @@
 
   // media query for resolution; dpi = "dots per inch" (192dpi: high-resolution screen, ie Apple retina display)
   // breakpoint: whenever the resolution is HIGHER than 192dpi, apply this code (use the bigger image)
-  // second condition (min-width: 37.5em, i.e. 600px) says don't use the large image unless the width of viewport is greater than 600px
+  // second condition is for SAFARI
+  // third condition (min-width: 37.5em, i.e. 600px) says don't use the large image unless the width of viewport is greater than 600px
   // the comma acts as an "OR", and this handles the condition of the display is large, i.e., greater than 2000px (but not a apple-retina style display??)
   @media (min-resolution: 192dpi) and (min-width: 37.5em),
+         (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
          (min-width: 125em) {
     background-image: linear-gradient(
       to right bottom,
-      rgba($color-secondary-light, 0.801),
-      rgba($color-secondary-dark, 0.801)),
+      rgba($color-primary-light, .8),
+      rgba($color-primary-dark, .8)),
       url(../img/hero.jpg);
   }
 
@@ -47,4 +49,3 @@
     text-align: center;
   }
 }
-
